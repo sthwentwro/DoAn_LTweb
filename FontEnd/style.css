@@ -1,0 +1,66 @@
+.container{
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+}
+/*Chuc nang zoom hinh*/
+.zoom {
+    transition: transform .2s; /* Animation */
+}
+  
+.zoom:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+.gallery-wrap .img-big-wrap img {
+    height: 400px;
+    width: auto;
+    display: inline-block;
+    cursor: zoom-in;
+}
+
+
+/*Phan css chi tiet gia*/
+.price-detail-wrap{
+  margin: 0;
+  list-style-type: none;
+  border-bottom: 1px solid #eee;
+  padding: 5px 0 15px;
+  overflow: hidden;
+}
+.title{
+  font-size: 1rem;
+  line-height: 1;
+  color: #555;
+  width: 20px;
+  float: left;
+  margin: 0;
+  white-space: nowrap;
+}
+.price{
+  font-weight: 600;
+  color: #b32605;
+  font-size: 1.5rem;
+  line-height: 12px;
+  padding-top: 11px;
+  float: left;
+}
+.price-detail-wrap .price{
+  margin-left: 85px;
+  display: block;
+}
+.price-detail-wrap .title{
+  padding-top: 10px;
+}
+.sub-title-product{
+  font-size: 0.8rem;
+  margin-bottom: 15px;
+}
+#availability{
+  margin-top: 15px;
+}
+.stock{
+  color:#327435
+}
+#availability div{
+  font-size: 1.6em;
+  font-weight: 600;
+}
