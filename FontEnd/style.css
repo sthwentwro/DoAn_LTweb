@@ -1,6 +1,9 @@
 .container{
   font-family: 'Roboto', sans-serif;
-  font-size: 10px;
+  font-size: 0.9rem;
+}
+.card{
+  margin: 40px 0;
 }
 /*Chuc nang zoom hinh*/
 .zoom {
@@ -16,8 +19,6 @@
     display: inline-block;
     cursor: zoom-in;
 }
-
-
 /*Phan css chi tiet gia*/
 .price-detail-wrap{
   margin: 0;
@@ -63,4 +64,54 @@
 #availability div{
   font-size: 1.6em;
   font-weight: 600;
+}
+.btn.btn-md{
+  font-size: 11.5px;
+  padding: 12px 20px 11px 20px;
+  line-height: 1.1;
+}
+.btn-light{
+  color: #4f4f4f !important;
+  background-color: #f2f2f2 !important;
+} 
+.btn{
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2),0 2px 10px 0 rgba(0,0,0,0.05);
+}
+/*nav mo ta*/
+.classic-tabs .nav.tabs-primary li a.active{
+  color: #1266f1 !important;
+  border-color: #1266f1;
+}
+.classic-tabs .nav.tabs-primary li a{
+  color:#6c757d;
+  font-weight: 500;
+}
+.nav-item{
+  border-bottom: 1px solid #dee2e6;
+}
+.classic-tabs .nav li a.active{
+  border-bottom: 3px solid;
+}
+.classic-tabs .nav.tabs-primary{
+  background-color: #fff !important;
+}
+.classic-tabs .nav{
+  position: relative;
+  overflow-x: auto;
+  white-space: nowrap;
+  border-radius: .3rem .3rem 0 0;
+}
+.classic-tabs .tab-content{
+  padding: 1.5rem 0;
+}
+.rating li{
+  display: inline-block;
+}
+.rating{
+  padding: 0;
+  color: #ffa000;
+  list-style-type: none;
+}
+.text-rating{
+  color: #ffa000;
 }

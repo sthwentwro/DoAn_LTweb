@@ -2,62 +2,175 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/FontEnd/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <title>Chi Tiết Sản Phẩm</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/FontEnd/fontawesome-free-5.15.3-web/fontawesome-free-5.15.3-web/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/FontEnd/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <title>Chi Tiết Sản Phẩm</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="card">
-            <div class="row">
-                <!--Khung anh-->
-                <aside class="col-sm-5 border-right">
-                    <article class="gallery-wrap">
-                        <div class="img-big-wrap zoom">
-                            <div>
-                                <a href="#">
-                                    <img src="/FontEnd/ChitietSanPham/anh1.jpg" alt="">
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                </aside>
-                <!--Khung thong tin san pham-->
-                <aside class="col-sm-7">
-                    <article class="card-body p-5">
-                        <h3 class="mb-2">Tên sản phẩm được viết ở đây</h3>
-                        <span class="sub-title-product">Thương hiệu</span>
-                        <div class="price-detail-wrap">
-                            <p class="title">Giá tiền:</p>
-                            <p class="price">
-                                <span>50000</span>
-                            </p>
-                        </div>
-                        <div id="availability">
-                            <div class="stock">Còn hàng</div>
-                        </div>
-                        <hr>
-                    </article>
-                </aside>
+  <div class="container">
+    <div class="card">
+      <div class="row">
+        <!--Khung anh-->
+        <aside class="col-sm-4 border-right">
+          <article class="gallery-wrap">
+            <div class="img-big-wrap zoom">
+              <div>
+                <a href="#">
+                  <img src="" alt="anh">
+                </a>
+              </div>
             </div>
-        </div>
+          </article>
+        </aside>
+        <!--Khung thong tin san pham-->
+        <aside class="col-sm-8">
+          <article class="card-body p-5">
+            <h3 class="mb-2">Tên sản phẩm được viết ở đây</h3>
+            <span class="sub-title-product">Thương hiệu</span>
+            <div class="price-detail-wrap">
+              <p class="title">Giá tiền:</p>
+              <p class="price">
+                <span>50000</span>
+              </p>
+            </div>
+            <div id="availability">
+              <div class="stock">Còn hàng</div>
+            </div>
+            <hr>
+            <dl>
+              <dt>Số lượng: </dt>
+              <dd>
+                <select class="form-control form-control-sm" style="width:70px;">
+                  <option> 1 </option>
+                  <option> 2 </option>
+                  <option> 3 </option>
+                </select>
+              </dd>
+            </dl>
+            <button type="button" class="btn btn-primary btn-md mr-1 mb-2">Mua ngay</button>
+            <button type="button" class="btn btn-light btn-md mr-1 mb-2"><i class="fas fa-shopping-cart pr-2"></i>Thêm
+              vào giỏ hàng</button>
+          </article>
+        </aside>
+      </div>
     </div>
+    <div class="classic-tabs rounded px-4 pt-1">
+      <ul class="nav tabs-primary nav-justified" id="advancedTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link show active" id="description-tab" data-toggle="tab" href="#description" role="tab"
+            aria-controls="description" aria-selected="true">MÔ TẢ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info"
+            aria-selected="false">THÔNG TIN</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"
+            aria-selected="false">ĐÁNH GIÁ</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="advancedTabContent">
+        <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+          <h5>Product Description</h5>
+          <p class="pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit
+            error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio,
+            officia quis dolore quos sapiente tempore alias.</p>
+          <h5>Lợi ích chung</h5>
+          <p class="pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit
+            error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio,
+            officia quis dolore quos sapiente tempore alias.</p>
+        </div>
+        <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info-tab">
+          <h5>Thông tin thêm</h5>
+          <table class="table table-striped table-bordered mt-3">
+            <thead>
+              <tr>
+                <th scope="row" class="w-150 dark-grey-text h6">Trọng lượng</th>
+                <td><em>0.3 kg</em></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="w-150 dark-grey-text h6">Dimensions</th>
+                <td><em>50 × 60 cm</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+          <h5>Thêm nhận xét</h5>
+          <div class="my-3">
+            <ul class="rating mb-0">
+              <li>
+                <a href="#!">
+                  <i class="fas fa-star fa-sm text-rating"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#!">
+                  <i class="fas fa-star fa-sm text-rating"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#!">
+                  <i class="fas fa-star fa-sm text-rating"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#!">
+                  <i class="fas fa-star fa-sm text-rating"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#!">
+                  <i class="far fa-star fa-sm text-rating"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <!-- Your review -->
+            <div class="md-form md-outline">
+              <textarea id="form76" class="md-textarea form-control pr-6" rows="4"></textarea>
+              <label for="form76">Your review</label>
+            </div>
+            <!-- Name -->
+            <div class="md-form md-outline">
+              <input type="text" id="form75" class="form-control pr-6">
+              <label for="form75">Name</label>
+            </div>
+            <!-- Email -->
+            <div class="md-form md-outline">
+              <input type="email" id="form77" class="form-control pr-6">
+              <label for="form77">Email</label>
+            </div>
+            <div class="text-right pb-2">
+              <button type="button" class="btn btn-primary">Add a review</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Classic tabs -->
+  </div>
 </body>
 
 </html>
