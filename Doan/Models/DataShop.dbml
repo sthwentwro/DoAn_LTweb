@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PETFOOD" Class="DataShopDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-6UMBUVT;Initial Catalog=PETFOOD;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PETFOODConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Sanpham" Member="Sanphams">
+    <Type Name="Sanpham">
+      <Column Name="IDsanpham" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenSP" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GiaSP" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="AnhSP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MoTa" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SLton" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NSX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TrongLuong" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="DVT" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="IDLoaiSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDConvat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Sanpham_ChitietHoadon" Member="ChitietHoadons" ThisKey="IDsanpham" OtherKey="IDsanpham" Type="ChitietHoadon" />
+      <Association Name="LoaiVat_Sanpham" Member="LoaiVat" ThisKey="IDConvat" OtherKey="IDConvat" Type="LoaiVat" IsForeignKey="true" />
+      <Association Name="LoaiSP_Sanpham" Member="LoaiSP" ThisKey="IDLoaiSP" OtherKey="IDLoaiSP" Type="LoaiSP" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Role" Member="Roles">
+    <Type Name="Role">
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Association Name="Role_Nguoidung" Member="Nguoidungs" ThisKey="RoleID" OtherKey="RoleID" Type="Nguoidung" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Nguoidung" Member="Nguoidungs">
+    <Type Name="Nguoidung">
+      <Column Name="IDnguoidung" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="Diachi" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Nguoidung_HoaDon" Member="HoaDons" ThisKey="IDnguoidung" OtherKey="IDnguoidung" Type="HoaDon" />
+      <Association Name="Role_Nguoidung" Member="Role" ThisKey="RoleID" OtherKey="RoleID" Type="Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoaiVat" Member="LoaiVats">
+    <Type Name="LoaiVat">
+      <Column Name="IDConvat" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenConVat" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="LoaiVat_Sanpham" Member="Sanphams" ThisKey="IDConvat" OtherKey="IDConvat" Type="Sanpham" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HoaDon" Member="HoaDons">
+    <Type Name="HoaDon">
+      <Column Name="IDHoadon" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DaThanhToan" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TinhTrangGiaohang" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Ngaydat" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ngaygiao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IDnguoidung" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="HoaDon_ChitietHoadon" Member="ChitietHoadons" ThisKey="IDHoadon" OtherKey="IDHoadon" Type="ChitietHoadon" />
+      <Association Name="Nguoidung_HoaDon" Member="Nguoidung" ThisKey="IDnguoidung" OtherKey="IDnguoidung" Type="Nguoidung" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ChitietHoadon" Member="ChitietHoadons">
+    <Type Name="ChitietHoadon">
+      <Column Name="IDsanpham" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IDHoadon" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Soluong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Dongia" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="HoaDon_ChitietHoadon" Member="HoaDon" ThisKey="IDHoadon" OtherKey="IDHoadon" Type="HoaDon" IsForeignKey="true" />
+      <Association Name="Sanpham_ChitietHoadon" Member="Sanpham" ThisKey="IDsanpham" OtherKey="IDsanpham" Type="Sanpham" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoaiSP" Member="LoaiSPs">
+    <Type Name="LoaiSP">
+      <Column Name="IDLoaiSP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenLoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MotaLoai" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="LoaiSP_Sanpham" Member="Sanphams" ThisKey="IDLoaiSP" OtherKey="IDLoaiSP" Type="Sanpham" />
+    </Type>
+  </Table>
+</Database>
