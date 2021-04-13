@@ -3,40 +3,162 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>@ViewBag.Title - Pet Shop</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/lib/bootstrap.min.css">
+    <!-- Font Awesome / Icon Fonts -->
+    <link href="~/Content/font-awesome/css/all.min.css" rel="stylesheet" />
+    <!-- Owl Carousel / Carousel- Slider -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/lib/owl.carousel.min.css">
+    <!-- Video YouTube -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/lib/lazyYT.min.css">
+    <!-- Carousel- Slider / Vertical -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/lib/slick.css">
+    <!-- Style Theme -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
+    <!-- Responsive Theme -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/responsive.css">
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <div class="wrapper">
+        <!--===================== Header ========================-->
+        <header>
+            <div class="top-bar bg-black">
+                <div class="container-large">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12 text-left">
+                            <ul>
+                                <li><a href="contact.html">Contact Us</a></li>
+                                <li><a href="contact.html">Support</a></li>
+                            </ul><!--right-top-bar-->
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 text-right">
+                            <ul>
+                                <li><a href="#">Login</a></li>
+                            </ul><!--right-top-bar-->
+                        </div>
+                    </div>
+                </div>
+            </div><!--top-bar-->
+            <div class="container-large header">
+                <div class="row">
+                    <div class="col-md-5 col-sm-4 col-xs-4">
+                        <ul class="menu">
+                            <li><a href="/">Trang Chủ</a></li>
+                            <li class="mega-menu-top">
+                                <a href="#">Mua Hàng Trực Tuyến</a>
+                                <div class="mega-menu columns-2">
+                                    <ul>
+                                        <li class="first">Chó Cảnh</li>
+                                        <li><a href="Sanpham/ListSPCategory?loai=1">Thức Ăn Hạt Khô</a></li>
+                                        <li><a href="Sanpham/ListSPCategory?loai=2">Pate & Nước Sốt</a></li>
+                                        <li><a href="Sanpham/ListSPCategory?loai=3">Xương Gặm Và Bánh Thưởng</a></li>
+                                        <li><a href="#">Vitamins & Dinh Dưỡng</a></li>
+                                        <li><a href="#">Bát Ăn & Bình Uống Nước</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li class="first">Mèo Cảnh</li>
+                                        <li><a href="#">Thức Ăn Hạt Khô</a></li>
+                                        <li><a href="#">Pate & Nước Sốt</a></li>
+                                        <li><a href="#">Snack & Bánh Thưởng</a></li>
+                                        <li><a href="#">Vitamins & Dinh Dưỡng</a></li>
+                                        <li><a href="#">Cỏ Mèo & Catnip</a></li>
+                                        <li><a href="#">Bát Ăn & Bình Uống Nước</a></li>
+
+                                    </ul>
+                                </div><!--mega-menu-->
+                            </li><!--children-->
+                            <li><a href="about.html">Về Chúng Tôi</a></li>
+                            <!--sub-menu-->
+
+                            <li class="mega-menu-top">
+                                <a href="#">Cửa Hàng</a>
+                                <div class="mega-menu columns-3">
+                                    <ul>
+                                        <li class="first">Shop Page</li>
+                                        <li><a href="shop.html">Shop</a></li>
+                                        <li><a href="shop-two.html">Shop v2</a></li>
+                                        <li><a href="shop-column-three.html">Shop Column 3</a></li>
+                                        <li><a href="shop-column-three-v2.html">Shop Column 3 v2</a></li>
+                                        <li><a href="shop-column-three-v3.html">Shop Column 3 v3</a></li>
+                                    </ul>
+                                </div><!--mega-menu-->
+                            </li>
+                        </ul><!--menu-->
+                        <button type="button" class="menu-button">
+                            <span></span>
+                        </button>
+                    </div>
+                    <div class="col-md-2 col-sm-3 col-xs-3 text-center">
+                        <div class="logo"><a href="index.html"><img src="~/assets/images/logo1.png" alt="logo"></a></div>
+                    </div>
+                    <div class="col-md-5 col-sm-5 col-xs-5 text-right">
+                        <ul class="info-header">
+                            <li class="search-icon"><a href="#"><i class="fa fa-search"></i>search</a></li>
+                            <li class="cart">
+                                <a href="cart.html"><i class="fa fa-shopping-bag"></i>Bag (0)</a>
+                                <div class="cart-modal">
+
+                                    <div class="button">
+                                        <a href="cart.html" class="custom-btn">Xem Giỏ Hàng</a>
+                                        <a href="cart.html" class="custom-btn pink">Thanh Toán</a>
+                                    </div>
+                                </div><!--cart-modal-->
+                            </li>
+                        </ul><!--info-header-->
+                        <ul class="social-icon">
+                            <li class="facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li class="google"><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            <li class="tumblr"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li class="instagram"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        </ul><!--social-icon-->
+                    </div>
+                </div>
+                <form class="search">
+                    <input type="text" placeholder="Search...">
+                    <span class="close"><img src="assets/images/close2.png" alt="close"></span>
+                </form>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
+        </header>
+        <div class="container body-content">
+            @RenderBody()
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer class="bg-yellow">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="widget-page">
+                            <h4 class="widget-title">Customer Care</h4>
+                            <a href="404.html">Register</a>
+                            <a href="404.html">My Account</a>
+                            <a href="404.html">Track Order</a>
+                        </div><!--widget-page-->
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="widget-contact">
+                            <h4 class="widget-title">contact usy</h4>
+                            <address>123 6th St. Melbourne, FL 32904<br>Phone: (125) 546-4478<br>Email: yesorganic.com</address>
+                        </div><!--widget-contact-->
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>Copyright &copy; @DateTime.Now cinagro</p>
+                </div>
+            </div>
+            <div id="back-to-top"><i class="fa fa-angle-up"></i></div>
         </footer>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <script src="~/assets/js/lib/jquery.js"></script>
+    <script src="~/assets/js/lib/bootstrap.min.js"></script>
+    <script src="~/assets/js/lib/owl.carousel.min.js"></script>
+    <script src="~/assets/js/lib/jquery-ui.min.js"></script>
+    <script src="~/assets/js/lib/TweenMax.min.js"></script>
+    <script src="~/assets/js/lib/lazyYT.js"></script>
+    <script src="~/assets/js/lib/masonry.pkgd.min.js"></script>
+    <script src="~/assets/js/lib/jquery.filterizr.min.js"></script>
+    <script src="~/assets/js/lib/slick.min.js"></script>
+    <script src="~/assets/js/lib/jquery.counterup.min.js"></script>
+    <script src="~/assets/js/lib/waypoints.min.js"></script>
+    <script src="~/assets/js/main.js"></script>
 </body>
 </html>

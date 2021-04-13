@@ -130,5 +130,10 @@
 li .text-rating {
     color: #ffa000;
 }
+.md-form.md-outline {
+    position: relative;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
 /**---------------- End for Product Detail Page Style ------------------**/
 

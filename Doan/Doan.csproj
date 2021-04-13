@@ -123,6 +123,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GiohangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SanphamController.cs" />
     <Compile Include="Global.asax.cs">
@@ -133,10 +134,68 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataShop.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Giohang.cs" />
     <Compile Include="Models\QLSanpham.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\audio\music.mp3" />
+    <Content Include="assets\css\lib\bootstrap.min.css" />
+    <Content Include="assets\css\lib\font-awesome.min.css" />
+    <Content Include="assets\css\lib\lazyYT.min.css" />
+    <Content Include="assets\css\lib\owl.carousel.min.css" />
+    <Content Include="assets\css\lib\slick.css" />
+    <Content Include="assets\css\responsive.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\images\-.png" />
+    <Content Include="assets\images\512.jpg" />
+    <Content Include="assets\images\check.svg" />
+    <Content Include="assets\images\close.png" />
+    <Content Include="assets\images\close2.png" />
+    <Content Include="assets\images\controls.png" />
+    <Content Include="assets\images\dog1.jpg" />
+    <Content Include="assets\images\dog2.jpg" />
+    <Content Include="assets\images\dog3.jpg" />
+    <Content Include="assets\images\dog4.jpg" />
+    <Content Include="assets\images\dog5.jpg" />
+    <Content Include="assets\images\drag.png" />
+    <Content Include="assets\images\home-.png" />
+    <Content Include="assets\images\leaf.png" />
+    <Content Include="assets\images\logo.gif" />
+    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\logo1.png" />
+    <Content Include="assets\images\marker.png" />
+    <Content Include="assets\images\Minus-1.png" />
+    <Content Include="assets\images\minus.png" />
+    <Content Include="assets\images\mov_bbb.mp4" />
+    <Content Include="assets\images\pause.png" />
+    <Content Include="assets\images\play-arrow.png" />
+    <Content Include="assets\images\play-icon.png" />
+    <Content Include="assets\images\play.png" />
+    <Content Include="assets\images\play2.png" />
+    <Content Include="assets\images\Plus-1.png" />
+    <Content Include="assets\images\plus.png" />
+    <Content Include="assets\images\rectangle-4-copy-6.png" />
+    <Content Include="assets\images\refresh.png" />
+    <Content Include="assets\images\remove.png" />
+    <Content Include="assets\images\stars.png" />
+    <Content Include="assets\images\vegan.png" />
+    <Content Include="assets\images\web-link.png" />
+    <Content Include="assets\images\youtube-button.png" />
+    <Content Include="assets\images\zoom.png" />
+    <Content Include="assets\js\lib\bootstrap.min.js" />
+    <Content Include="assets\js\lib\jquery-ui.min.js" />
+    <Content Include="assets\js\lib\jquery.counterup.min.js" />
+    <Content Include="assets\js\lib\jquery.filterizr.min.js" />
+    <Content Include="assets\js\lib\jquery.js" />
+    <Content Include="assets\js\lib\lazyYT.js" />
+    <Content Include="assets\js\lib\masonry.pkgd.min.js" />
+    <Content Include="assets\js\lib\owl.carousel.min.js" />
+    <Content Include="assets\js\lib\slick.min.js" />
+    <Content Include="assets\js\lib\TweenMax.min.js" />
+    <Content Include="assets\js\lib\waypoints.min.js" />
+    <Content Include="assets\js\main.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -161,9 +220,16 @@
     <Content Include="Content\font-awesome\webfonts\fa-brands-400.svg" />
     <Content Include="Content\font-awesome\webfonts\fa-regular-400.svg" />
     <Content Include="Content\font-awesome\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\img\cho\hat\anforganicduck.jpg" />
     <Content Include="Content\img\cho\hat\becgiemkb.jpg" />
+    <Content Include="Content\img\cho\hat\jerhighchicken.jpg" />
     <Content Include="Content\img\cho\hat\mecfish.jpg" />
+    <Content Include="Content\img\cho\hat\poodlemkb.jpg" />
     <Content Include="Content\img\cho\hat\royalpuppy.jpg" />
+    <Content Include="Content\img\cho\pate\nuocsotvitjerhighduck.jpg" />
+    <Content Include="Content\img\cho\pate\pateganvasang.jpg" />
+    <Content Include="Content\img\cho\pate\pateirisbeefvegetable.jpg" />
+    <Content Include="Content\img\cho\pate\paterisforpuppy.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -192,6 +258,39 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="assets\fonts\brandon\Brandon_bld.eot" />
+    <Content Include="assets\fonts\brandon\Brandon_bld.otf" />
+    <Content Include="assets\fonts\brandon\Brandon_bld.ttf" />
+    <Content Include="assets\fonts\brandon\Brandon_bld.woff" />
+    <Content Include="assets\fonts\brandon\brandon_blk.eot" />
+    <Content Include="assets\fonts\brandon\brandon_blk.otf" />
+    <Content Include="assets\fonts\brandon\brandon_blk.ttf" />
+    <Content Include="assets\fonts\brandon\brandon_blk.woff" />
+    <Content Include="assets\fonts\brandon\brandon_med.eot" />
+    <Content Include="assets\fonts\brandon\brandon_med.otf" />
+    <Content Include="assets\fonts\brandon\brandon_med.ttf" />
+    <Content Include="assets\fonts\brandon\brandon_med.woff" />
+    <Content Include="assets\fonts\brandon\brandon_medium_italic.eot" />
+    <Content Include="assets\fonts\brandon\brandon_medium_italic.otf" />
+    <Content Include="assets\fonts\brandon\brandon_medium_italic.ttf" />
+    <Content Include="assets\fonts\brandon\brandon_medium_italic.woff" />
+    <Content Include="assets\fonts\brandon\brandon_reg.eot" />
+    <Content Include="assets\fonts\brandon\brandon_reg.otf" />
+    <Content Include="assets\fonts\brandon\brandon_reg.ttf" />
+    <Content Include="assets\fonts\brandon\brandon_reg.woff" />
+    <Content Include="assets\fonts\brandon\brandon_reg_it.eot" />
+    <Content Include="assets\fonts\brandon\brandon_reg_it.otf" />
+    <Content Include="assets\fonts\brandon\brandon_reg_it.ttf" />
+    <Content Include="assets\fonts\brandon\brandon_reg_it.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
+    <Content Include="assets\fonts\Minion-Pro\Minion_Pro_Bold_Italic.eot" />
+    <Content Include="assets\fonts\Minion-Pro\Minion_Pro_Bold_Italic.otf" />
+    <Content Include="assets\fonts\Minion-Pro\Minion_Pro_Bold_Italic.ttf" />
+    <Content Include="assets\fonts\Minion-Pro\Minion_Pro_Bold_Italic.woff" />
     <None Include="Models\DataShop.dbml.layout">
       <DependentUpon>DataShop.dbml</DependentUpon>
     </None>
@@ -267,6 +366,8 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Sanpham\SPdetail.cshtml" />
+    <Content Include="Views\Giohang\Giohang.cshtml" />
+    <Content Include="Views\Sanpham\ListSPCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

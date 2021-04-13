@@ -9,9 +9,7 @@ namespace Doan.Controllers
 {
     public class SanphamController : Controller
     {
-        // GET: Sanpham
-        //Hiện danh sách sản phẩm theo loại
-        //Chưa xong
+        // GET: Sanpham        
         public ActionResult ListSP()
         {
             ListSP sp = new ListSP();
@@ -22,6 +20,12 @@ namespace Doan.Controllers
         {
             ListSP sp = new ListSP();
             return View(model: sp.getSanpham(id).FirstOrDefault());
+        }
+        //Hiện danh sách sản phẩm theo loại
+        public ActionResult ListSPCategory(int loai)
+        {
+            ListSP sp = new ListSP();
+            return View(sp.getSanphamtheoloai(loai));
         }
     }
 }

@@ -1,31 +1,50 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@using Doan.Models
+@model List<Sanpham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<div class="base-slider owl-carousel owl-theme">
+    <div class="item">
+        <img src="~/assets/images/dog4.jpg" alt="slider">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+    </div><!--item-->
+    <div class="item slide-two">
+        <img src="~/assets/images/dog3.jpg" alt="slider">
+
+    </div><!--item-->
+    <div class="item slide-three">
+        <img src="~/assets/images/dog5.jpg" alt="slider">
+
+    </div><!--item-->
 </div>
+    <div class="grid-product">
+        <div class="title-head">
+            <h2 class="text-black">Sản phẩm đang bán</h2>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="product">
+                        <div class="images">
+                            <a href="single-product.html"><img src="@item.AnhSP" alt="product"></a>
+                            <div class="button-group">
+                                <a href="cart.html" class="custom-btn pink"><i class="fa fa-shopping-bag"></i></a>
+                                <a href="/Sanpham/SPdetail/@item.IDsanpham" class="custom-btn pink"><i class="fa fa-search"></i></a>
+                            </div><!--button-group-->
+                        </div><!--images-->
+                        <div class="info-product">
+                            <a href="single-product.html" class="title">@item.TenSP</a>
+                            <span class="price">
+                                <ins>@item.GiaSP</ins>
+                            </span>
+                        </div><!--info-product-->
+                    </div><!--product-->
+                </div>
+            }
+            <div class="text-center"><a href="shop.html" class="custom-btn text-center green">VIEW THE STORE</a></div>
+            </div>
+        </div><!--grid-product-->
+<!--=============== End of Grid Product ===================-->

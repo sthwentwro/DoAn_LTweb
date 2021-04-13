@@ -30,5 +30,15 @@ namespace Doan.Models
             }
             return data.Sanphams.Where(i => i.IDsanpham == ID).ToList();
         }
+        public List<Sanpham> getSanphamtheoloai(int loai)
+        {
+            DataShopDataContext data = new DataShopDataContext();
+            return data.Sanphams.Where(i => i.IDLoaiSP == loai).ToList();
+        }
+        public List<Sanpham> getSanphamhot(int count)
+        {
+            DataShopDataContext data = new DataShopDataContext();
+            return data.Sanphams.Take(count).ToList();
+        }
     }
 }
