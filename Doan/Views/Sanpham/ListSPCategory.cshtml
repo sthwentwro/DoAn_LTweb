@@ -1,5 +1,5 @@
 ﻿@using Doan.Models
-@model List<Sanpham>
+@model List<QLSanpham>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "ListSP";
@@ -11,7 +11,7 @@
     @foreach (var item in Model)
     {
         <div class="col-12 col-lg-3 col-md-4">
-            <div class="card h-100">
+            <div class="card" style="height:90%">
                 <div class="d-flex justify-content-between position-absolute w-100">
                     <div class="label-sale">
                         <span class="text-white bg-primary small d-flex align-items-center px-2 py-1">
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <a href="SPdetail/@item.IDsanpham">
-                    <img src="@item.AnhSP" class="card-img-top" alt="Product">
+                    <img src="@item.cover" class="card-img-top" alt="Product">
                 </a>
                 <div class="card-body px-2 pb-2 pt-1 d-flex flex-column">
                     <div class="d-flex justify-content-between">

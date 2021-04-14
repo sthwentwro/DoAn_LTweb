@@ -1,159 +1,10 @@
 ﻿@using Doan.Models
-@model Sanpham
+@model QLSanpham
 @{
     ViewBag.Title = "SPdetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<!--<link href="~/Content/css/StyleDetailPage.css" rel="stylesheet" />
-@*@using (Html.BeginForm())*@
-@*{*@
-    @*<div class="card">
-        <div class="row">
-            <aside class="col-md-5 mb-4 mb-md-0">
-                <article class="row gallery-wrap mx-1">
-                    <div class="col-12 mb-0">
-                        <div class="img-big-wrap zoom">
-                            <div class="zoom" data-toggle="modal" data-target="#zoom-modal">
-                                <img src="@Model.AnhSP" alt="anh">
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </aside>
-            <aside class="col-md-7">
-                <article class="card-body p-5">
-                    <h4 class="mb-2">@Model.TenSP</h4>
-                    <span class="sub-title-product">@Model.NSX</span>
-                    <div class="price-detail-wrap">
-                        <p class="title">Giá tiền:</p>
-                        <p class="price">
-                            <span>@Model.GiaSP đ</span>
-                        </p>
-                    </div>
-                    <div id="availability">
-                        @if (Model.SLton > 0)
-                        {
-                            <div class="stock">Còn hàng</div>
-                        }
-                        else
-                        {
-                            <div class="stock">Hết hàng</div>
-                        }
 
-                    </div>
-                    <hr>
-                    <dl>
-                        <dt>Số lượng: </dt>
-                        <dd>
-                            <select class="form-control form-control-sm" style="width:70px;">
-                                <option> 1 </option>
-                                <option> 2 </option>
-                                <option> 3 </option>
-                            </select>
-                        </dd>
-                    </dl>
-                    <button type="button" class="btn btn-primary btn-md mr-1 mb-2">Mua ngay</button>
-                    <button type="button" class="btn btn-light btn-md mr-1 mb-2">
-                        <i class="fas fa-shopping-cart pr-2"></i>Thêm vào giỏ hàng
-                    </button>
-                </article>
-            </aside>
-        </div>
-    </div>
-    <div class="classic-tabs rounded px-4 pt-1">
-            <ul class="nav tabs-primary nav-justified" id="advancedTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link show active" id="description-tab" data-toggle="tab" href="#description" role="tab"
-                       aria-controls="description" aria-selected="true">MÔ TẢ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info"
-                       aria-selected="false">THÔNG TIN</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"
-                       aria-selected="false">ĐÁNH GIÁ</a>
-                </li>
-            </ul>
-            <div class="tab-content" id="advancedTabContent">
-                <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-                    <h5>Chi tiết sản phẩm</h5>
-                    <p class="pt-1">
-                        @Model.MoTa
-                    </p>
-                </div>
-                <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info-tab">
-                    <h5>Thông tin thêm</h5>
-                    <table class="table table-striped table-bordered mt-3">
-                        <thead>
-                            <tr>
-                                <th scope="row" class="w-150 dark-grey-text h6">Trọng lượng</th>
-                                <td><em>@Model.TrongLuong</em></td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row" class="w-150 dark-grey-text h6">Dimensions</th>
-                                <td><em>50 × 60 cm</em></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                    <h5>Thêm nhận xét</h5>
-                    <div class="my-3">
-                        <ul class="rating mb-0">
-                            <li>
-                                <a href="#!">
-                                    <i class="fas fa-star fa-sm text-rating"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!">
-                                    <i class="fas fa-star fa-sm text-rating"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!">
-                                    <i class="fas fa-star fa-sm text-rating"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!">
-                                    <i class="fas fa-star fa-sm text-rating"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!">
-                                    <i class="far fa-star fa-sm text-rating"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        Your review
-                        <div class="md-form md-outline">
-                            <label>Đánh giá</label>
-                            <textarea id="form76" class="md-textarea form-control pr-6" rows="4" style="margin-top: 0px;margin-bottom: 7.9916px;height: 172px;"></textarea>
-                        </div>
-                        Name
-                        <div class="md-form md-outline">
-                            <label>Tên</label>
-                            <input type="text" id="form75" class="form-control pr-6">
-                        </div>
-                        Email
-                        <div class="md-form md-outline">
-                            <label>Email</label>
-                            <input type="email" id="form77" class="form-control pr-6">
-                        </div>
-                        <div class="text-right pb-2">
-                            <button type="button" class="btn btn-primary">Thêm nhận xét</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>*@
-<!--}-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -198,7 +49,7 @@
                     <!--================= Single Product Slider  ====================-->
                     <div class="single-product-slider">
                         <div class="product-slider-shop owl-carousel owl-theme">
-                            <div class="item"><img src="@Model.AnhSP" alt="single-product"></div>
+                            <div class="item"><img src="@Model.cover" alt="single-product"></div>
                          
                         </div>
 
@@ -217,7 +68,7 @@
                                     <div id="carousel" class="carousel slide" data-ride="carousel">
                                         <div class="carousel-inner">
                                             <div class="item active">
-                                                <img src="@Model.AnhSP" alt="single">
+                                                <img src="@Model.cover" alt="single">
                                             </div><!--item-->
                                             <div class="item">
                                                 <img src="http://via.placeholder.com/570x570" alt="single">
@@ -297,15 +148,15 @@
                         </div><!--star-->
                         <div class="add-to-cart">
                             <div class="quantity">
-                                <span class="minus"><img src="assets/images/minus.png" alt="minus"></span>
+                                <span class="minus"><img src="~/assets/images/minus.png" alt="minus"></span>
                                 <input value="1" size="5">
-                                <span class="plus"><img src="assets/images/plus.png" alt="plus"></span>
+                                <span class="plus"><img src="~/assets/images/plus.png" alt="plus"></span>
                             </div>
                             <a href="cart.html" class="custom-btn green">add to bag</a>
                         </div><!--add-to-cart-->
                         <ul>
-                            <li>Categories:<a href="#">Oil</a></li>
-                            <li>Tags:<a href="#">Oil,</a><a href="#">Organic,</a><a href="#">Health</a></li>
+                            <li>Categories:<a href="#">@Model.loaiSP</a></li>s
+                            <li>Tags:<a href="#">@Model.Tenconvat,</a><a href="#">Organic,</a><a href="#">Health</a></li>
                             <li>
                                 Share:
                                 <ul class="social-icon">
@@ -328,7 +179,7 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade in active" id="description">
-                            <p>@Model.MoTa</p>
+                            <p>@Model.mota</p>
                             
                             <ul class="list">
                                 <li class="first">Benefits of Essential Oils:</li>

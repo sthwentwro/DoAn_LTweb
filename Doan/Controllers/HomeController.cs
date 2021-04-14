@@ -12,7 +12,7 @@ namespace Doan.Controllers
         public ActionResult Index()
         {
             ListSP sp = new ListSP();
-            var listSP = sp.getSanpham(null);
+            var listSP = sp.listSanpham();
             //lấy 4 sp ngẫu nhiên trong danh sách
             List<Sanpham> list4sp = new List<Sanpham>(); 
             Random ran = new Random();

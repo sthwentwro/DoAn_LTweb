@@ -10,11 +10,11 @@ namespace Doan.Controllers
     public class SanphamController : Controller
     {
         // GET: Sanpham        
-        public ActionResult ListSP()
-        {
-            ListSP sp = new ListSP();
-            return View(sp.getSanpham(null));
-        }
+        //public ActionResult ListSP()
+        //{
+        //    ListSP sp = new ListSP();
+        //    return View(sp.getSanpham(null));
+        //}
         //Hiện chi tiết sản phẩm
         public ActionResult SPdetail(int id)
         {

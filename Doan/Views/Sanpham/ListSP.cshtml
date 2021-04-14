@@ -1,7 +1,6 @@
 ﻿@using Doan.Models
-@model List<Sanpham>
+@model List<QLSanpham>
 @{
-    //Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "ListSP";
 }
 @Styles.Render("~/Content/css")
@@ -20,7 +19,7 @@
                     </div>
                 </div>
                 <a href="SPdetail/@item.IDsanpham">
-                    <img src="@item.AnhSP" class="card-img-top" alt="Product">
+                    <img src="@item.cover" class="card-img-top" alt="Product">
                 </a>
                 <div class="card-body px-2 pb-2 pt-1 d-flex flex-column">
                     <div class="d-flex justify-content-between">

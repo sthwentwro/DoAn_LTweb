@@ -28,14 +28,14 @@
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="product">
                         <div class="images">
-                            <a href="single-product.html"><img src="@item.AnhSP" alt="product"></a>
+                            <a href="/Sanpham/SPdetail/@item.IDsanpham"><img src="@item.AnhSP" alt="product"></a>
                             <div class="button-group">
-                                <a href="cart.html" class="custom-btn pink"><i class="fa fa-shopping-bag"></i></a>
+                                <a href="/Sanpham/SPdetail/@item.IDsanpham" class="custom-btn pink"><i class="fa fa-shopping-bag"></i></a>
                                 <a href="/Sanpham/SPdetail/@item.IDsanpham" class="custom-btn pink"><i class="fa fa-search"></i></a>
                             </div><!--button-group-->
                         </div><!--images-->
                         <div class="info-product">
-                            <a href="single-product.html" class="title">@item.TenSP</a>
+                            <a href="/Sanpham/SPdetail/@item.IDsanpham" class="title">@item.TenSP</a>
                             <span class="price" style="margin-top:30px">
                                 <ins><br />@String.Format("{0:0,0}", item.GiaSP) VND</ins>
                             </span>
