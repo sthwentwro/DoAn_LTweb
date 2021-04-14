@@ -2,7 +2,6 @@
 @model List<Sanpham>
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="base-slider owl-carousel owl-theme">
@@ -37,8 +36,8 @@
                         </div><!--images-->
                         <div class="info-product">
                             <a href="single-product.html" class="title">@item.TenSP</a>
-                            <span class="price">
-                                <ins>@item.GiaSP</ins>
+                            <span class="price" style="margin-top:30px">
+                                <ins><br />@String.Format("{0:0,0}", item.GiaSP) VND</ins>
                             </span>
                         </div><!--info-product-->
                     </div><!--product-->

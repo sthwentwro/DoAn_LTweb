@@ -2,11 +2,12 @@
 @model Sanpham
 @{
     ViewBag.Title = "SPdetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/Content/css/StyleDetailPage.css" rel="stylesheet" />
-@using (Html.BeginForm())
-{
-    <div class="card">
+<!--<link href="~/Content/css/StyleDetailPage.css" rel="stylesheet" />
+@*@using (Html.BeginForm())*@
+@*{*@
+    @*<div class="card">
         <div class="row">
             <aside class="col-md-5 mb-4 mb-md-0">
                 <article class="row gallery-wrap mx-1">
@@ -33,6 +34,10 @@
                         @if (Model.SLton > 0)
                         {
                             <div class="stock">Còn hàng</div>
+                        }
+                        else
+                        {
+                            <div class="stock">Hết hàng</div>
                         }
 
                     </div>
@@ -147,6 +152,221 @@
                     </div>
                 </div>
             </div>
+        </div>*@
+<!--}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cinagro</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5">
+    <!-- Framework Css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/lib/bootstrap.min.css">
+    <!-- Font Awesome / Icon Fonts -->
+    <link rel="stylesheet" type="text/css" href="assets/css/lib/font-awesome.min.css">
+    <!-- Owl Carousel / Carousel- Slider -->
+    <link rel="stylesheet" type="text/css" href="assets/css/lib/owl.carousel.min.css">
+    <!-- Video YouTube -->
+    <link rel="stylesheet" type="text/css" href="assets/css/lib/lazyYT.min.css">
+    <!-- Carousel- Slider / Vertical -->
+    <link rel="stylesheet" type="text/css" href="assets/css/lib/slick.css">
+    <!-- Style Theme -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Responsive Theme -->
+    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+</head>
+<body class="single-product">
+    <div class="wrapper">
+        <!--===================== Header ========================-->
+        <!--============== End of Header ========================-->
+        <!--================= Breadcrumb  ====================-->
+        <div class="breadcrumb-top">
+            <div class="container">
+                <h4 class="title">@Model.TenSP</h4>
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li class="active">ORS - Olive oil</li>
+                </ol><!--breadcrumb-->
+            </div>
         </div>
-}
+        <!--================= End of Breadcrumb  ====================-->
+        <!--================= Single Product  ====================-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <!--================= Single Product Slider  ====================-->
+                    <div class="single-product-slider">
+                        <div class="product-slider-shop owl-carousel owl-theme">
+                            <div class="item"><img src="@Model.AnhSP" alt="single-product"></div>
+                         
+                        </div>
+
+                        <div class="zoom" data-toggle="modal" data-target="#zoom-modal">
+                            <img src="~/assets/images/zoom.png" alt="zoom">
+                        </div>
+                    </div>
+                    <!--================= End of Single Product Slider  ====================-->
+                    <div class="modal fade" id="zoom-modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="carousel" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="item active">
+                                                <img src="@Model.AnhSP" alt="single">
+                                            </div><!--item-->
+                                            <div class="item">
+                                                <img src="http://via.placeholder.com/570x570" alt="single">
+                                            </div><!--item-->
+                                            <div class="item">
+                                                <img src="http://via.placeholder.com/570x570" alt="single">
+                                            </div><!--item-->
+                                            <div class="item">
+                                                <img src="http://via.placeholder.com/570x570" alt="single">
+                                            </div><!--item-->
+                                            <div class="item">
+                                                <img src="http://via.placeholder.com/570x570" alt="single">
+                                            </div><!--item-->
+                                            <div class="item">
+                                                <img src="http://via.placeholder.com/570x570" alt="single">
+                                            </div><!--item-->
+                                            <div class="item">
+                                                <img src="http://via.placeholder.com/570x570" alt="single">
+                                            </div><!--item-->
+                                            <div class="item">
+                                                <img src="http://via.placeholder.com/570x570" alt="single">
+                                            </div><!--item-->
+                                        </div><!--carousel-inner-->
+                                    </div><!--carousel-->
+                                    <div id="thumbcarousel" class="carousel slide" data-interval="false">
+                                        <div class="carousel-inner">
+                                            <div class="item active">
+                                                <div data-target="#carousel" data-slide-to="0" class="thumb">
+                                                    <img src="http://via.placeholder.com/133x133" alt="product">
+                                                </div>
+                                                <div data-target="#carousel" data-slide-to="1" class="thumb">
+                                                    <img src="http://via.placeholder.com/133x133" alt="product">
+                                                </div>
+                                                <div data-target="#carousel" data-slide-to="2" class="thumb">
+                                                    <img src="http://via.placeholder.com/133x133" alt="product">
+                                                </div>
+                                                <div data-target="#carousel" data-slide-to="3" class="thumb">
+                                                    <img src="http://via.placeholder.com/133x133" alt="product">
+                                                </div>
+                                            </div><!--item-->
+                                            <div class="item">
+                                                <div data-target="#carousel" data-slide-to="4" class="thumb">
+                                                    <img src="http://via.placeholder.com/133x133" alt="product">
+                                                </div>
+                                                <div data-target="#carousel" data-slide-to="5" class="thumb">
+                                                    <img src="http://via.placeholder.com/133x133" alt="product">
+                                                </div>
+                                                <div data-target="#carousel" data-slide-to="6" class="thumb">
+                                                    <img src="http://via.placeholder.com/133x133" alt="product">
+                                                </div>
+                                                <div data-target="#carousel" data-slide-to="7" class="thumb">
+                                                    <img src="http://via.placeholder.com/133x133" alt="product">
+                                                </div>
+                                            </div>
+                                        </div><!--carousel-inne-->
+                                        <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                                        <a class="right carousel-control" href="#thumbcarousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                                    </div><!--thumbcarousel-->
+                                </div><!--modal-body-->
+                            </div><!--modal-content-->
+                        </div><!--modal-dialog-->
+                    </div><!--modal-->
+                </div>
+                <div class="col-md-6">
+                    <!--================= Inside Single  ====================-->
+                    <div class="inside-single">
+                        <div class="price"> @String.Format("{0:0,0}", @Model.GiaSP) VND</div>
+                        <div class="star">
+                            <span>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </span>
+                            <a href="#">(4 customer reviews)</a>
+                        </div><!--star-->
+                        <div class="add-to-cart">
+                            <div class="quantity">
+                                <span class="minus"><img src="assets/images/minus.png" alt="minus"></span>
+                                <input value="1" size="5">
+                                <span class="plus"><img src="assets/images/plus.png" alt="plus"></span>
+                            </div>
+                            <a href="cart.html" class="custom-btn green">add to bag</a>
+                        </div><!--add-to-cart-->
+                        <ul>
+                            <li>Categories:<a href="#">Oil</a></li>
+                            <li>Tags:<a href="#">Oil,</a><a href="#">Organic,</a><a href="#">Health</a></li>
+                            <li>
+                                Share:
+                                <ul class="social-icon">
+                                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li class="google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li class="tumblr"><a href="#"><i class="fa fa-tumblr"></i></a></li>
+                                    <li class="instagram"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul><!--social-icon-->
+                            </li>
+                        </ul>
+                    </div>
+                    <!--================= End of Inside Single  ====================-->
+                </div>
+                <div class="col-md-12">
+                    <!--================= Tab  ====================-->
+                    <ul class="nav nav-tabs text-center">
+                        <li class="active"><a href="#description" data-toggle="tab" aria-expanded="true">Mô Tả</a></li>
+                        <li><a href="#additional-info" data-toggle="tab">Thông Tin</a></li>
+                        <li><a href="#reviews" data-toggle="tab">Đánh Giá</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="description">
+                            <p>@Model.MoTa</p>
+                            
+                            <ul class="list">
+                                <li class="first">Benefits of Essential Oils:</li>
+                                <li><i class="fa fa-circle"></i>Improve immunity and speed illness recovery</li>
+                                <li><i class="fa fa-circle"></i>Deal with infection (under the care of a professional)</li>
+                                <li><i class="fa fa-circle"></i>Make homemade cleaning or beauty products</li>
+                                <li><i class="fa fa-circle"></i>In recipes like homemade bug spray to avoid outdoor pests naturally</li>
+                            </ul>
+                        </div><!--tab-pane-->
+                        <div class="tab-pane fade" id="additional-info">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. </p>
+                        </div><!--tab-pane-->
+                        <div class="tab-pane fade" id="reviews">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. </p>
+                        </div><!--tab-pane-->
+                    </div>
+                    <!--================= End of Tab  ====================-->
+                    <!--================= Similar Products  ====================-->
+                    <!--================= End of Similar Products  ====================-->
+                </div>
+            </div>
+        </div>
+        <!--================= End of Single Product  ====================-->
+        <!--===================== Footer ========================-->
+        <!--================= End of Footer =====================-->
+    </div><!--wrapper-->
+    <script src="assets/js/lib/jquery.js"></script>
+    <script src="assets/js/lib/bootstrap.min.js"></script>
+    <script src="assets/js/lib/owl.carousel.min.js"></script>
+    <script src="assets/js/lib/jquery-ui.min.js"></script>
+    <script src="assets/js/lib/TweenMax.min.js"></script>
+    <script src="assets/js/lib/lazyYT.js"></script>
+    <script src="assets/js/lib/masonry.pkgd.min.js"></script>
+    <script src="assets/js/lib/jquery.filterizr.min.js"></script>
+    <script src="assets/js/lib/slick.min.js"></script>
+    <script src="assets/js/lib/jquery.counterup.min.js"></script>
+    <script src="assets/js/lib/waypoints.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
 

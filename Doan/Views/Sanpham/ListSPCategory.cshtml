@@ -1,7 +1,7 @@
 ﻿@using Doan.Models
 @model List<Sanpham>
 @{
-    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "ListSP";
 }
 <link href="~/Content/css/StyleDetailPage.css" rel="stylesheet" />
@@ -26,7 +26,7 @@
                 <div class="card-body px-2 pb-2 pt-1 d-flex flex-column">
                     <div class="d-flex justify-content-between">
                         <div>
-                            <p class="h5 text-primary">@item.GiaSP đ</p>
+                            <p class="h5 text-primary">@String.Format("{0:0,0}", item.GiaSP) VND</p>
                         </div>
                         <div>
                             <a href="#" class="text-secondary lead" data-toggle="tooltip" data-placement="left" title="Compare">
