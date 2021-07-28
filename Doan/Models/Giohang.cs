@@ -8,7 +8,7 @@ namespace Doan.Models
     public class Giohang
     {
         DataShopDataContext db = new DataShopDataContext();
-        public int iIDsanpham { get; set; }
+        public int? iIDsanpham { get; set; }
         public string sTensanpham { get; set; }
         public string sAnhSP { get; set;}
         public decimal? dDongia { get; set; }
@@ -17,7 +17,7 @@ namespace Doan.Models
         {
             get { return iSoluong * dDongia; }
         }
-        public Giohang(int IDsanpham,int sl)
+        public Giohang(int? IDsanpham,int sl)
         {
             iIDsanpham = IDsanpham;
             Sanpham sp = db.Sanphams.Single(n => n.IDsanpham == IDsanpham);
@@ -25,6 +25,38 @@ namespace Doan.Models
             sAnhSP = sp.AnhSP;
             dDongia = sp.GiaSP;
             iSoluong = sl;
+        }
+        public Giohang()
+        {
+        }
+        public bool Dathang(Nguoidung user,List<Giohang> gh,string ngaygiao)
+        {
+            try
+            {
+                HoaDon ddh = new HoaDon();
+                ddh.IDnguoidung = 1;
+                ddh.Ngaydat = DateTime.Now;
+                ddh.Ngaygiao = DateTime.Parse(ngaygiao);
+                ddh.TinhTrangGiaohang = false;
+                ddh.DaThanhToan = false;
+                db.HoaDons.InsertOnSubmit(ddh);
+                db.SubmitChanges();
+                foreach (var item in gh)
+                {
+                    ChitietHoadon ctdh = new ChitietHoadon();
+                    ctdh.IDHoadon = ddh.IDHoadon;
+                    ctdh.IDsanpham = (int)item.iIDsanpham;
+                    ctdh.Soluong = item.iSoluong;
+                    ctdh.Dongia = (decimal)item.dDongia;
+                    db.ChitietHoadons.InsertOnSubmit(ctdh);
+                }
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }           
         }
     }
 }

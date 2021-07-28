@@ -1,0 +1,22 @@
+﻿@using Doan.Models
+@{
+    Nguoidung kh = (Nguoidung)Session["Taikhoan"];
+}
+@if (kh == null)
+{
+    <ul>
+        <li><a href="/Nguoidung/DangKy">Đăng ký</a></li>
+        <li><a href="/Nguoidung/dangnhap">Đăng nhập</a></li>
+    </ul>
+}
+else
+{
+    <ul>
+        <li >
+            <a>
+                <span class="mr-2">Xin chào: @kh.Username</span>
+            </a>
+        </li>
+        <li class="nav-item"><a href="/Nguoidung/Logout" id="logoutLink" class="nav-link navbar-light">Logout</a></li>
+    </ul>
+}

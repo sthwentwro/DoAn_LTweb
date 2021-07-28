@@ -1,7 +1,82 @@
 ﻿@using Doan.Models
-@model List<Giohang>
+@using PagedList.Mvc;
+@model PagedList.PagedList<Giohang>
 @{
     ViewBag.Title = "Giohang";
 }
-
-
+<div class="wrapper">
+    <div class="container">
+        <!--================= Cart Inside ====================-->
+        <div class="cart-inside">
+            <h3>Chi tiết giỏ hàng</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <td class="table-product">Sản phẩm</td>
+                        <td>&nbsp;</td>
+                        <td class="text-center">Giá tiền</td>
+                        <td class="text-center">Số lượng</td>
+                        <td class="text-center">Thành tiền</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            @using (Html.BeginForm("Capnhatgiohang", "Giohang", new { @iMaSP = item.iIDsanpham }))
+                            {
+                                <td class="product-thumbnail"><img src="@item.sAnhSP" alt="cart-product"></td>
+                                <td class="product-name" data-title="Product">@item.sTensanpham</td>
+                                <td class="product-price text-center" data-title="Price"><span class="price">@String.Format("{0:0,0}", @item.dDongia)</span></td>
+                                <td class="product-quantity text-center" data-title="Quantity">
+                                    <div class="quantity">
+                                        <span class="minus"><img src="~/assets/images/minus.png" alt="minus"></span>
+                                        <input name="txtSoluong" value=@item.iSoluong size="5">
+                                        <span class="plus"><img src="~/assets/images/plus.png" alt="plus"></span>
+                                    </div><!--quantity-->
+                                </td>
+                                <td class="product-price text-center" data-title="Total"><span class="price">@String.Format("{0:0,0}", @item.dThanhtien)</span></td>
+                                <td class="product-remove text-right"><a href="@Url.Action("Xoagiohang", new { iIDsanpham = item.iIDsanpham })"><img src="~/assets/images/remove.png" alt="remove"></a></td>
+                                <td class="product-remove text-right"><input type="submit" value="Cập nhật" /></td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="MenuTrang">
+                @Html.PagedListPager(Model, page => Url.Action("Giohang", new { page = page }))
+            </div>
+            <style>
+                .MenuTrang li {
+                    display: inline;
+                }
+            </style>
+            <div class="text-right"><a href="Xoatatca"><button class="custom-btn">Xóa giỏ hàng</button></a></div>
+            <div class="checkout bg-grey">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <!--===================== Checkout Form ========================-->
+                            <div class="checkout-form">
+                                <div class="subtotal">
+                                    <span>Tổng tiền</span><span class="price">@String.Format("{0:0,0}", @ViewBag.Tongtien) VND</span>
+                                </div><!--subtotal-->
+                                <div class="shipping">
+                                    <span>Shipping</span>
+                                    <ul>
+                                        <li><label class="checkbox"><input type="checkbox" name="billing" value="company"><span class="label"><span>Miễn phí vận chuyển</span></span></label></li>
+                                    </ul>
+                                </div><!--shipping-->
+                                <div class="total">
+                                    <span>Total</span><span class="price">@String.Format("{0:0,0}", @ViewBag.Tongtien) VND</span>
+                                </div><!--total-->
+                                <div class="text-right"><a href="/Giohang/Dathang"><button type="button" class="custom-btn">Đặt hàng</button></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

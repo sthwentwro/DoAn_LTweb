@@ -22,10 +22,10 @@ namespace Doan.Controllers
             return View(model: sp.getSanpham(id).FirstOrDefault());
         }
         //Hiện danh sách sản phẩm theo loại
-        public ActionResult ListSPCategory(int loai)
+        public ActionResult ListSPCategory(int loai,int vat)
         {
             ListSP sp = new ListSP();
-            return View(sp.getSanphamtheoloai(loai));
+            return View(sp.getSanphamtheoloai(loai,vat));
         }
     }
 }

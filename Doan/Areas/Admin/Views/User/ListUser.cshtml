@@ -1,0 +1,71 @@
+﻿@using Doan.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<QLuser>
+
+@{
+    ViewBag.Title = "ListUser";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Danh sách người dùng</h2>
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Tables</h1>
+
+<!-- DataTales Example -->
+@using (Html.BeginForm("ListUser", "User", FormMethod.Post))
+{
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>UserName</th>
+                            <th>Password</th>
+                            <th>Role</th>
+                            <th>Họ tên</th>
+                            <th>Công cụ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.IDUser</td>
+                                <td>@item.Username</td>
+                                <td>@item.Password</td>
+                                <td>@item.Role</td>
+                                <td>@item.Hoten</td>
+                                <td>
+                                    <a href="/Admin/User/EditUser/@item.IDUser">Sửa</a>
+                                </td>
+                                @*@{
+                                        if (@item.Follow)
+                                        {
+                                            <td>Đang theo dõi <a href="Notify/@item.IDCode" class="btn btn-info" role="button">Change</a></td>
+                                        }
+                                        else
+                                        {
+                                            <td>Không theo dõi <a href="Notify/@item.IDCode" class="btn btn-info" role="button">Change</a></td>
+                                        }
+                                    }*@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @*@Html.PagedListPager(Model, page => Url.Action("ListUser", new { page }))*@
+            </div>
+        </div>
+    </div>
+}
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("ListUser", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+

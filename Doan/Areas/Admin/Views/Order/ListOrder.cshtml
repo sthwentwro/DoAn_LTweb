@@ -1,0 +1,73 @@
+﻿@using Doan.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<QLdondathang>
+@{
+    ViewBag.Title = "ListOrder";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Danh sách đơn hàng</h2>
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Tables</h1>
+
+<!-- DataTales Example -->
+@using (Html.BeginForm("ListOrder", "Order", FormMethod.Post))
+{
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Mã người dùng</th>
+                            <th>Số lượng mua</th>
+                            <th>Tổng tiền</th>
+                            <th>Ngày đặt</th>
+                            <th>Ngày giao</th>
+                            <th>Tình trạng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.IDdondathang</td>
+                                <td>@item.IDnguoidung</td>
+                                <td>@item.Tongsl</td>
+                                <td>@String.Format("{0:0,0}", item.Tonggiatri) VND</td>
+                                <td>@item.Ngaydat</td>
+                                <td>@item.Ngaygiao.Value.ToShortDateString()</td>
+                                <td>
+                                    @if (item.Tinhtrang == false)
+                                    {
+                                        <p>Chưa giao</p>
+                                    }
+                                    else
+                                    {
+                                        <p>Đã giao</p>
+                                    }
+                                </td>
+                                <td>
+                                    <a href="/Admin/Order/EditOrder/@item.IDdondathang">Chi tiết</a>
+                                    ||
+                                    <a href="/Admin/Order/RemoveOrder/@item.IDdondathang">Xóa</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("ListProduct", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+

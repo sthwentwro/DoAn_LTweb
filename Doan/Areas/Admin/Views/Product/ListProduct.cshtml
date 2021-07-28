@@ -1,0 +1,60 @@
+﻿@using Doan.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<Sanpham>
+@{
+    ViewBag.Title = "ListProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Danh sách sản phẩm</h2>
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Tables</h1>
+
+<!-- DataTales Example -->
+@using (Html.BeginForm("ListProduct", "Product", FormMethod.Post))
+{
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Ảnh sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Số lượng tồn</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.IDsanpham</td>
+                                <td>@item.TenSP</td>
+                                <td><img src="@item.AnhSP" style="width:30%"></td>
+                                <td>@item.GiaSP</td>
+                                <td>@item.SLton</td>
+                                <td>
+                                    <a href="/Admin/Product/EditProduct/@item.IDsanpham">Sửa</a>
+                                    ||
+                                    <a href="/Admin/Product/DeleteProduct/@item.IDsanpham">Xóa</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("ListProduct", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+

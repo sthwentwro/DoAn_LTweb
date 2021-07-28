@@ -34,11 +34,6 @@
         <div class="breadcrumb-top">
             <div class="container">
                 <h4 class="title">@Model.TenSP</h4>
-                <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Shop</a></li>
-                    <li class="active">ORS - Olive oil</li>
-                </ol><!--breadcrumb-->
             </div>
         </div>
         <!--================= End of Breadcrumb  ====================-->
@@ -50,7 +45,7 @@
                     <div class="single-product-slider">
                         <div class="product-slider-shop owl-carousel owl-theme">
                             <div class="item"><img src="@Model.cover" alt="single-product"></div>
-                         
+
                         </div>
 
                         <div class="zoom" data-toggle="modal" data-target="#zoom-modal">
@@ -146,17 +141,20 @@
                             </span>
                             <a href="#">(4 customer reviews)</a>
                         </div><!--star-->
-                        <div class="add-to-cart">
-                            <div class="quantity">
-                                <span class="minus"><img src="~/assets/images/minus.png" alt="minus"></span>
-                                <input value="1" size="5">
-                                <span class="plus"><img src="~/assets/images/plus.png" alt="plus"></span>
-                            </div>
-                            <a href="cart.html" class="custom-btn green">add to bag</a>
-                        </div><!--add-to-cart-->
+                        @using (Html.BeginForm("Themgiohang", "Giohang", new { @iID = Model.IDsanpham,@strURL = Request.Url.ToString() }))
+                        {
+                            <div class="add-to-cart">
+                                <div class="quantity">
+                                    <span class="minus"><img src="~/assets/images/minus.png" alt="minus"></span>
+                                    <input name="soluong" value="1" size="5">
+                                    <span class="plus"><img src="~/assets/images/plus.png" alt="plus"></span>
+                                </div>
+                                <button type="submit" class="custom-btn green">Đặt mua</button>
+                            </div><!--add-to-cart-->
+                        }
                         <ul>
-                            <li>Categories:<a href="#">@Model.loaiSP</a></li>s
-                            <li>Tags:<a href="#">@Model.Tenconvat,</a><a href="#">Organic,</a><a href="#">Health</a></li>
+                            <li>Categories:<a href="#">@Model.loaiSP</a></li>
+                            <li>Tags:<a href="#">@Model.Tenconvat,</a>
                             <li>
                                 Share:
                                 <ul class="social-icon">
@@ -180,32 +178,32 @@
                     <div class="tab-content">
                         <div class="tab-pane fade in active" id="description">
                             <p>@Model.mota</p>
-                            
-                            <ul class="list">
-                                <li class="first">Benefits of Essential Oils:</li>
-                                <li><i class="fa fa-circle"></i>Improve immunity and speed illness recovery</li>
-                                <li><i class="fa fa-circle"></i>Deal with infection (under the care of a professional)</li>
-                                <li><i class="fa fa-circle"></i>Make homemade cleaning or beauty products</li>
-                                <li><i class="fa fa-circle"></i>In recipes like homemade bug spray to avoid outdoor pests naturally</li>
-                            </ul>
                         </div><!--tab-pane-->
                         <div class="tab-pane fade" id="additional-info">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. </p>
+                            <h5>Thông tin thêm</h5>
+                            <table class="table table-striped table-bordered mt-3">
+                                <thead>
+                                    <tr>
+                                        <th scope="row" class="dark-grey-text h4">Trọng lượng</th>
+                                        <td><em>@Model.trongluong</em></td>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                    <tr>
+                                        <th scope="row" class="dark-grey-text h4">Đơn vị tính</th>
+                                        <td><em>@Model.DVT</em></td>
+                                    </tr>
+                                </thead>
+                            </table>
                         </div><!--tab-pane-->
                         <div class="tab-pane fade" id="reviews">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. </p>
                         </div><!--tab-pane-->
                     </div>
-                    <!--================= End of Tab  ====================-->
-                    <!--================= Similar Products  ====================-->
-                    <!--================= End of Similar Products  ====================-->
                 </div>
             </div>
         </div>
-        <!--================= End of Single Product  ====================-->
-        <!--===================== Footer ========================-->
-        <!--================= End of Footer =====================-->
-    </div><!--wrapper-->
+    </div>
     <script src="assets/js/lib/jquery.js"></script>
     <script src="assets/js/lib/bootstrap.min.js"></script>
     <script src="assets/js/lib/owl.carousel.min.js"></script>

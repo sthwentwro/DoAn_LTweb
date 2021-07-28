@@ -1,0 +1,119 @@
+﻿@using Doan.Models
+@model List<Giohang>
+@{
+    ViewBag.Title = "Dathang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="wrapper">
+    <div class="container">
+        <!--================= Cart Inside ====================-->
+        <div class="cart-inside">
+            <h3>Chi tiết đơn hàng</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <td class="table-product">Sản phẩm</td>
+                        <td>&nbsp;</td>
+                        <td class="text-center">Giá tiền</td>
+                        <td class="text-center">Số lượng</td>
+                        <td class="text-center">Thành tiền</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            @using (Html.BeginForm("Capnhatgiohang", "Giohang", new { @iMaSP = item.iIDsanpham }))
+                            {
+                                <td class="product-thumbnail"><img src="@item.sAnhSP" alt="cart-product"></td>
+                                <td class="product-name" data-title="Product">@item.sTensanpham</td>
+                                <td class="product-price text-center" data-title="Price"><span class="price">@String.Format("{0:0,0}", @item.dDongia)</span></td>
+                                <td class="product-quantity text-center" data-title="Quantity">
+                                    <div style=" padding: 16px 0 19px 0;">
+                                        @item.iSoluong
+                                    </div>
+                                </td>
+                                <td class="product-price text-center" data-title="Total"><span class="price">@String.Format("{0:0,0}", @item.dThanhtien)</span></td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="text-right"><a href="Giohang"><button class="custom-btn">Trở về giỏ hàng</button></a></div>
+            <h2 style="text-align:center">Thông tin đặt hàng</h2>
+            @{
+                Nguoidung kh = (Nguoidung)Session["Taikhoan"];
+            }            
+        <div class="checkout bg-grey">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <table align="center">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                                <tr>
+                                    <td style="padding: 0 0 20px 0">Họ tên khách hàng</td>
+                                    <td style="font-weight:bold;padding:0 0 20px 0">
+                                        @kh.HoTen
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0 0 40px 0">Địa chỉ</td>
+                                    <td style="font-weight:bold;padding:0 0 40px 0">
+                                        @kh.Diachi
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0 0 20px 0">Điện thoại</td>
+                                    <td style="font-weight:bold;padding:0 0 20px 0">
+                                        @kh.SDT
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0 0 20px 0">Ngày đặt</td>
+                                    <td style="font-weight:bold;padding:0 0 20px 0">
+                                        @DateTime.Now.ToShortDateString()
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0 0 20px 0">Ngày giao hàng</td>
+                                    <td style="font-weight:bold;padding:0 0 20px 0">
+                                        <input type="date" name="Ngaygiao" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 20px 0">
+                                        <button type="submit" class="custom-btn" data-toggle="modal" data-target="#checkout-modal">Đồng ý thanh toán</button>
+                                    </td>
+                                </tr>
+
+                            }
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <!--===================== Checkout Form ========================-->
+                        <div class="checkout-form">
+                            <div class="subtotal" style="width:90%">
+                                <span>Tổng tiền</span><span class="price">@String.Format("{0:0,0}", @ViewBag.Tongtien) VND</span>
+                            </div><!--subtotal-->
+                            <div class="shipping">
+                                <span>Shipping</span>
+                                <ul>
+                                    <li><label class="checkbox"><input type="checkbox" name="billing" value="company"><span class="label"><span>Miễn phí vận chuyển</span></span></label></li>
+                                </ul>
+                            </div><!--shipping-->
+                            <div class="total" style="width:90%">
+                                <span>Total</span><span class="price">@String.Format("{0:0,0}", @ViewBag.Tongtien) VND</span>
+                            </div><!--total-->
+                        </div>
+                        <!--===================== End of Checkout Modal ========================-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div><!--wrapper-->

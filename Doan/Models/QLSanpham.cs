@@ -49,13 +49,13 @@ namespace Doan.Models
                          };
             return result.ToList();
         }
-        public List<QLSanpham> getSanphamtheoloai(int loai)
+        public List<QLSanpham> getSanphamtheoloai(int loai,int vat)
         {
             DataShopDataContext data = new DataShopDataContext();
             var result = from a in data.Sanphams
                          join b in data.LoaiSPs on a.IDLoaiSP equals b.IDLoaiSP
                          join c in data.LoaiVats on a.IDConvat equals c.IDConvat
-                         where a.IDLoaiSP == loai
+                         where a.IDLoaiSP == loai && a.IDConvat==vat
                          select new QLSanpham()
                          {
                              IDsanpham = a.IDsanpham,
@@ -76,6 +76,61 @@ namespace Doan.Models
         {
             DataShopDataContext data = new DataShopDataContext();
             return data.Sanphams.Take(count).ToList();
+        }
+        public bool CreateSP(Sanpham pro)
+        {
+            try
+            {
+                DataShopDataContext data = new DataShopDataContext();
+                data.Sanphams.InsertOnSubmit(pro);
+                data.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public bool EditSP(Sanpham pro)
+        {
+            try
+            {
+                DataShopDataContext data = new DataShopDataContext();
+                var sp = data.Sanphams.Where(a => a.IDsanpham == pro.IDsanpham).FirstOrDefault();
+                sp.TenSP = pro.TenSP;
+                sp.GiaSP = pro.GiaSP;
+                sp.TrongLuong = pro.TrongLuong;
+                sp.NSX = pro.NSX;
+                sp.DVT = pro.DVT;
+                sp.AnhSP = pro.AnhSP;
+                sp.SLton = pro.SLton;
+                data.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }          
+        }
+        public bool DeleteSP(int id)
+        {
+            try
+            {
+                DataShopDataContext data = new DataShopDataContext();
+                Sanpham sp = data.Sanphams.First(n => n.IDsanpham == id);
+                data.Sanphams.DeleteOnSubmit(sp);
+                data.SubmitChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public Sanpham get1Sanpham(int ID)
+        {
+            DataShopDataContext data = new DataShopDataContext();
+            return data.Sanphams.Where(a => a.IDsanpham == ID).FirstOrDefault();
         }
     }
 }

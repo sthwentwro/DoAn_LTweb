@@ -2953,8 +2953,8 @@ footer .widget-title {
   border-bottom: 1px solid #f3f7f6;
 }
 .cart-inside table tbody td {
-  font-size: 24px;
-  font-family: 'BrandonMedium', serif;
+  font-size: 20px;
+  font-family: 'Roboto', serif;
 }
 .cart-inside table .quantity {
   padding: 16px 0 19px 0;
@@ -2971,7 +2971,7 @@ footer .widget-title {
 /* 02. Checkout
    ==================================== */
 .checkout {
-  padding: 160px 0;
+  padding: 50px 0;
 }
 .checkout label {
   font-size: 26px;
@@ -3127,7 +3127,7 @@ footer .widget-title {
   float: right;
 }
 .checkout-form .custom-btn {
-  padding: 28px 51px;
+  padding: 25px 20px;
   box-shadow: none;
 }
 /* 04. Checkout Modal

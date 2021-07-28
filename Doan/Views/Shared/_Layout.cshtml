@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
     <!-- Responsive Theme -->
     <link rel="stylesheet" type="text/css" href="~/assets/css/responsive.css">
+    <link rel="Shortcut Icon" href="~/assets/images/iconshop.jpg" type="image/x-icon" />
 </head>
 <body>
     <div class="wrapper">
@@ -27,14 +28,12 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12 text-left">
                             <ul>
-                                <li><a href="contact.html">Contact Us</a></li>
-                                <li><a href="contact.html">Support</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Support</a></li>
                             </ul><!--right-top-bar-->
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 text-right">
-                            <ul>
-                                <li><a href="#">Login</a></li>
-                            </ul><!--right-top-bar-->
+                            @Html.Partial("_LoginPatial");
                         </div>
                     </div>
                 </div>
@@ -49,19 +48,19 @@
                                 <div class="mega-menu columns-2">
                                     <ul>
                                         <li class="first">Chó Cảnh</li>
-                                        <li><a href="/Sanpham/ListSPCategory?loai=1">Thức Ăn Hạt Khô</a></li>
-                                        <li><a href="/Sanpham/ListSPCategory?loai=2">Pate & Nước Sốt</a></li>
-                                        <li><a href="/Sanpham/ListSPCategory?loai=3">Xương Gặm Và Bánh Thưởng</a></li>
+                                        <li><a href="/Sanpham/ListSPCategory?loai=1&vat=1">Thức Ăn Hạt Khô</a></li>
+                                        <li><a href="/Sanpham/ListSPCategory?loai=2&vat=1">Pate & Nước Sốt</a></li>
+                                        <li><a href="/Sanpham/ListSPCategory?loai=3&vat=1">Xương Gặm Và Bánh Thưởng</a></li>
                                         <li><a href="#">Vitamins & Dinh Dưỡng</a></li>
                                         <li><a href="#">Bát Ăn & Bình Uống Nước</a></li>
                                     </ul>
                                     <ul>
                                         <li class="first">Mèo Cảnh</li>
-                                        <li><a href="#">Thức Ăn Hạt Khô</a></li>
+                                        <li><a href="/Sanpham/ListSPCategory?loai=1&vat=2">Thức Ăn Hạt Khô</a></li>
                                         <li><a href="#">Pate & Nước Sốt</a></li>
                                         <li><a href="#">Snack & Bánh Thưởng</a></li>
                                         <li><a href="#">Vitamins & Dinh Dưỡng</a></li>
-                                        <li><a href="#">Cỏ Mèo & Catnip</a></li>
+                                        <li><a href="/Sanpham/ListSPCategory?loai=7&vat=2">Cỏ Mèo & Catnip</a></li>
                                         <li><a href="#">Bát Ăn & Bình Uống Nước</a></li>
 
                                     </ul>
@@ -94,16 +93,7 @@
                     <div class="col-md-5 col-sm-5 col-xs-5 text-right">
                         <ul class="info-header">
                             <li class="search-icon"><a href="#"><i class="fa fa-search"></i>search</a></li>
-                            <li class="cart">
-                                <a href="cart.html"><i class="fa fa-shopping-bag"></i>Bag (0)</a>
-                                <div class="cart-modal">
-
-                                    <div class="button">
-                                        <a href="cart.html" class="custom-btn">Xem Giỏ Hàng</a>
-                                        <a href="cart.html" class="custom-btn pink">Thanh Toán</a>
-                                    </div>
-                                </div><!--cart-modal-->
-                            </li>
+                            @Html.Action("GiohangPartial", "Giohang")
                         </ul><!--info-header-->
                         <ul class="social-icon">
                             <li class="facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -129,15 +119,14 @@
                     <div class="col-md-3 col-sm-6 col-xs-12">
                         <div class="widget-page">
                             <h4 class="widget-title">Customer Care</h4>
-                            <a href="404.html">Register</a>
-                            <a href="404.html">My Account</a>
-                            <a href="404.html">Track Order</a>
+                            <a href="#">Đăng ký</a>
+                            <a href="#">Tài khoản của tôi</a>
                         </div><!--widget-page-->
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12">
                         <div class="widget-contact">
-                            <h4 class="widget-title">contact usy</h4>
-                            <address>123 6th St. Melbourne, FL 32904<br>Phone: (125) 546-4478<br>Email: yesorganic.com</address>
+                            <h4 class="widget-title">Liên hệ chúng tôi</h4>
+                            <address>475A Điện Biên Phủ, Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh<br>Phone: (125) 546-4478<br>Email: petshoponline.com</address>
                         </div><!--widget-contact-->
                     </div>
                 </div>
